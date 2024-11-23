@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Index</title>
+        <h:outputStylesheet name="primefaces-saga/theme.css" />
+    </h:head>
+    
+    <h:body style="display: flex; align-items: center; justify-content: center; height: 100vh; background-color: #f5f5f5; padding: 20px;">
+        <h:form>
+            <p:panel header="Menu Principal" style="width: 400px; text-align: center;">
+                <p:commandLink value="Cadastrar Usuário" action="usuarios.xhtml" styleClass="menu-link" />
+                <br />
+                <br />
+
+                <p:commandLink value="Cadastrar Campeonato" action="cadastro_campeonato.xhtml" styleClass="menu-link" />
+                <br />
+                <br />
+
+                <p:commandLink value="Cadastrar Jogo" action="cadastro_jogo.xhtml" styleClass="menu-link" />
+                <br />
+                <br />
+
+                <p:commandLink value="Listar Jogos" action="listagem.xhtml" styleClass="menu-link" />
+                <br />
+                <br />
+
+                <p:commandLink value="Filtrar Jogos" action="filtro.xhtml" styleClass="menu-link" />
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

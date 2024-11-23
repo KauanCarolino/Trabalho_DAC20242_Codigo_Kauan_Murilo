@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,10 +10,26 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <title>Index</title>
+        <title>Login</title>
+        <h:outputStylesheet name="primefaces-saga/theme.css" />
     </h:head>
     
-    <h:body>
-    	
+    <h:body style="display: flex; align-items: center; justify-content: center; height: 100vh; background-color: #f5f5f5;">
+        <h:form>
+            <p:messages id="msgs" showDetail="true" />
+
+            <p:panel header="Login" style="width: 100%; text-align: center;">
+                <p:panelGrid columns="2" style="margin: 0 auto;" columnClasses="labelCol, inputCol">
+                    <p:outputLabel for="login" value="Login:" />
+                    <p:inputText id="login" value="#{usuarioBean.login}" placeholder="Digite seu login" />
+
+                    <p:outputLabel for="senha" value="Senha:" />
+                    <p:password id="senha" value="#{usuarioBean.senha}" placeholder="Digite sua senha" feedback="true" />
+                </p:panelGrid>
+
+                <p:commandButton value="Entrar" action="#{usuarioBean.autenticar}" icon="pi pi-sign-in" style="margin-top: 15px;" update="msgs" />
+			    <h:commandLink value="Cadastro" action="cadastro.xhtml" style="margin-left: 15px;" />
+            </p:panel>
+        </h:form>
     </h:body>
 </html>

@@ -14,6 +14,8 @@
     
     <h:body>
         <h:form>
+            <p:messages id="msgs" showDetail="true" />
+
 			<p:panelGrid header="Cadastro de Usuário" columns="2" style="width: 400px; margin: 0 auto;" 
 						 columnClasses="labelCol, inputCol">
 		
@@ -26,14 +28,15 @@
 				<p:outputLabel for="senha" value="Senha:" />
 				<p:password id="senha" value="#{usuarioBean.usuario.senha}" feedback="true" />
 		
-				<p:commandButton value="Salvar" action="#{usuarioBean.salvar}" icon="pi pi-save" style="margin-top: 15px;" />
+				<p:commandButton value="Salvar" action="#{usuarioBean.salvar}" icon="pi pi-save" style="margin-top: 15px;" update="msgs" />
 			    <h:commandLink value="Login" action="index.xhtml" style="margin-left: 15px;" />
 			</p:panelGrid>
 		
 		</h:form>
 
 
-        <p:dataTable value="#{usuarioBean.usuarios}" var="usuario" paginator="true" rows="5" style="width: 600px; margin: 20px auto">
+        <p:dataTable value="#{usuarioBean.usuarios}" var="usuario" paginator="true" 
+        			 paginatorPosition="bottom" rows="5" style="width: 600px; margin: 20px auto">
 			<p:column headerText="ID">
 				#{usuario.id}
 			</p:column>

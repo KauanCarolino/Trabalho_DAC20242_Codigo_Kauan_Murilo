@@ -28,9 +28,18 @@ public class UsuarioBean {
     private String senha;
     
     // Cadastro
-    public void salvar() {
+    public String salvar() {
+        if (usuarioDAO.buscarPorLogin(usuario.getLogin()) != null) {
+            FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Login já existe."));
+            return null;
+        }
+
         usuarioDAO.salvar(usuario);
         usuario = new Usuario();
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Usuário criado com sucesso!"));
+        return "login";
     }
 
     public List<Usuario> getUsuarios() {

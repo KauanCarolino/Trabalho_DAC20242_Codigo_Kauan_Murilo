@@ -23,4 +23,11 @@ public class UsuarioDAO {
 		em.close();
 		return lista;
 	}
+	
+    public Usuario buscarPorLogin(String login) {
+		EntityManager em = JPAUtil.criarEntityManager();
+        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.login = :login", Usuario.class);
+        query.setParameter("login", login);
+        return query.getResultList().isEmpty() ? null : query.getSingleResult();
+    }
 }

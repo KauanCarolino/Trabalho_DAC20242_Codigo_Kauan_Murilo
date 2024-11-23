@@ -14,24 +14,28 @@
     
     <h:body style="display: flex; align-items: center; justify-content: center; height: 100vh; background-color: #f5f5f5; padding: 20px;">
         <h:form>
-            <p:panel header="Menu Principal" style="width: 400px; text-align: center;">
-                <p:commandLink value="Cadastrar Usuário" action="usuarios.xhtml" styleClass="menu-link" />
+            <p:panel header="Menu Principal" style="width: 400px; text-align: center; color: #0d89ec;">
+                <h:link value="Login" outcome="index.xhtml" style="color: #0d89ec; text-decoration: none;" />
+                <br />
+                <br />
+            	
+            	<h:link value="Cadastro Usuário" outcome="cadastro.xhtml" style="color: #0d89ec; text-decoration: none;" />
                 <br />
                 <br />
 
-                <p:commandLink value="Cadastrar Campeonato" action="cadastro_campeonato.xhtml" styleClass="menu-link" />
+                <h:link value="Cadastrar Campeonato" outcome="cadastro_campeonato.xhtml" style="color: #0d89ec; text-decoration: none;" />
                 <br />
                 <br />
 
-                <p:commandLink value="Cadastrar Jogo" action="cadastro_jogo.xhtml" styleClass="menu-link" />
+                <h:link value="Cadastrar Jogo" outcome="cadastro_jogo.xhtml" style="color: #0d89ec; text-decoration: none;" />
                 <br />
                 <br />
 
-                <p:commandLink value="Listar Jogos" action="listagem.xhtml" styleClass="menu-link" />
+                <h:link value="Listar Jogos" outcome="listagem.xhtml" style="color: #0d89ec; text-decoration: none;" />
                 <br />
                 <br />
 
-                <p:commandLink value="Filtrar Jogos" action="filtro.xhtml" styleClass="menu-link" />
+                <h:link value="Filtrar Jogos" outcome="filtro.xhtml" style="color: #0d89ec; text-decoration: none;" />
             </p:panel>
         </h:form>
     </h:body>

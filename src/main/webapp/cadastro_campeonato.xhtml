@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Cadastro Campeonato</title>
+        <h:outputStylesheet name="primefaces-saga/theme.css" />
+    </h:head>
+	    
+	<h:body style="background-color: #f4f7fc; display: flex; justify-content: center; align-items: center; height: 100vh; padding: 20px; box-sizing: border-box;">
+	    <h:form style="width: 400px; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+	        
+	        <!-- Mensagem de Sucesso -->
+	        <p:messages id="msgs" style="width: 100%;" autoUpdate="true" />
+	        
+	        <h:outputLabel for="nome" value="Nome do Campeonato:" style="font-size: 16px; color: #333; margin-bottom: 8px; display: block;" />
+	        
+	        <p:inputText id="nome" value="#{campeonatoBean.campeonato.nome}" required="true" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;" />
+	        
+	        <h:message for="nome" styleClass="error" />
+	        
+	        <p:commandButton value="Salvar" action="#{campeonatoBean.salvar}" update="msgs, nome" style="width: 100%; padding: 12px; background-color: #0d89ec; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; margin-top: 10px;" />
+	        
+	        <h:link value="Voltar" outcome="opcoes" style="display: block; text-align: center; margin-top: 20px; color: #0d89ec; font-size: 14px; text-decoration: none;" />
+	    </h:form>
+	</h:body>
+
+</html>

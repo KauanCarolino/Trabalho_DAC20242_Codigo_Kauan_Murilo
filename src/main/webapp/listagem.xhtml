@@ -102,6 +102,46 @@
                 
 				<p:ajax event="rowEdit" listener="#{jogoBean.editar(jogo)}" update="jogosTable" />
             </p:dataTable>
+            
+    <p:commandButton value="Resumo" action="#{jogoBean.calcularResumo}" update="resumoTable" icon="pi pi-chart-bar" style="margin-top: 20px;" />
+    
+    <p:dataTable id="resumoTable" value="#{jogoBean.resumoTimes}" var="resumo" 
+                 style="margin-top: 20px;" paginator="true" rows="5"
+                 emptyMessage="Nenhum resumo disponível">
+        
+        <p:column headerText="Time">
+            <h:outputText value="#{resumo.time}" />
+        </p:column>
+        
+        <p:column headerText="Pontos">
+            <h:outputText value="#{resumo.pontos}" />
+        </p:column>
+        
+        <p:column headerText="Vitórias">
+            <h:outputText value="#{resumo.vitorias}" />
+        </p:column>
+        
+        <p:column headerText="Derrotas">
+            <h:outputText value="#{resumo.derrotas}" />
+        </p:column>
+        
+        <p:column headerText="Empates">
+            <h:outputText value="#{resumo.empates}" />
+        </p:column>
+        
+        <p:column headerText="Gols Marcados">
+            <h:outputText value="#{resumo.golsMarcados}" />
+        </p:column>
+        
+        <p:column headerText="Gols Sofridos">
+            <h:outputText value="#{resumo.golsSofridos}" />
+        </p:column>
+        
+        <p:column headerText="Saldo de Gols">
+            <h:outputText value="#{resumo.saldoGols}" />
+        </p:column>
+    </p:dataTable>
+
         </h:form>
 
         <p:link value="Cadastrar Novo Jogo" outcome="cadastro_jogo" style="display: block; text-align: center; margin-top: 20px;" />

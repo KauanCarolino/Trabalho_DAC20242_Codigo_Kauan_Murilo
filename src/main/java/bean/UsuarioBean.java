@@ -71,9 +71,6 @@ public class UsuarioBean {
         return "opcoes.xhtml?faces-redirect=true";
     }
 
-
-    
-
 	public Usuario getUsuario() {
 		return usuario;
 	}

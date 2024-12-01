@@ -5,12 +5,14 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import java.util.Date;
 
 @Entity
+@NamedQuery(name = "Jogo.buscarPorTime", query = "SELECT j FROM Jogo j WHERE j.time1 = :time OR j.time2 = :time")
 public class Jogo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

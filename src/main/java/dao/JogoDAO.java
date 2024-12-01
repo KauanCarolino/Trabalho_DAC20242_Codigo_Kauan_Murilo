@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.persistence.Query;
 
 import entidade.Jogo;
@@ -48,4 +49,15 @@ public class JogoDAO {
 		em.close();
 		return lista;
 	}
+	
+    public static List<Jogo> buscarPorTime(String time) {
+		EntityManager em = JPAUtil.criarEntityManager();
+        try {
+            TypedQuery<Jogo> query = em.createNamedQuery("Jogo.buscarPorTime", Jogo.class);
+            query.setParameter("time", time);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 }

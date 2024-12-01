@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Filtro de Jogos</title>
+        <h:outputStylesheet name="primefaces-saga/theme.css" />
+        <h:outputStylesheet name="primefaces/primeicons/primeicons.css" />
+    </h:head>
+    
+    <h:body style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
+        <p:panel header="Filtro de Jogos" style="margin: 0 auto; width: 50%;">
+            <h:form>
+                <p:fieldset legend="Pesquisar Jogos" toggleable="true">
+                    <p:panelGrid columns="2" styleClass="ui-panelgrid-blank" columnClasses="ui-grid-col-6, ui-grid-col-6">
+                        <p:outputLabel value="Time:" for="filtroTime" />
+                        <p:inputText id="filtroTime" value="#{jogoBean.filtroTime}" placeholder="Digite o nome do time" />
+
+                        <p:commandButton value="Localizar" icon="pi pi-search" action="#{jogoBean.filtrarPorTime}" update="jogosTabela" />
+                    </p:panelGrid>
+                </p:fieldset>
+
+                <p:dataTable id="jogosTabela" value="#{jogoBean.jogosFiltrados}" var="jogo" style="margin-top: 20px;" 
+                             emptyMessage="Nenhum jogo encontrado." 
+                             paginator="true" rows="10" rowsPerPageTemplate="5,10,20"
+                             responsiveLayout="scroll">
+                    <p:column headerText="Time 1" sortBy="#{jogo.time1}">
+                        <h:outputText value="#{jogo.time1}" />
+                    </p:column>
+                    <p:column headerText="Time 2" sortBy="#{jogo.time2}">
+                        <h:outputText value="#{jogo.time2}" />
+                    </p:column>
+                    <p:column headerText="Gols Time 1" sortBy="#{jogo.golsTime1}">
+                        <h:outputText value="#{jogo.golsTime1}" />
+                    </p:column>
+                    <p:column headerText="Gols Time 2" sortBy="#{jogo.golsTime2}">
+                        <h:outputText value="#{jogo.golsTime2}" />
+                    </p:column>
+                    <p:column headerText="Data da Partida" sortBy="#{jogo.dataPartida}">
+                        <h:outputText value="#{jogo.dataPartida}">
+                            <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+                        </h:outputText>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>

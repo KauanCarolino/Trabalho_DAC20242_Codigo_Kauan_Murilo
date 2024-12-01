@@ -23,6 +23,8 @@ public class JogoBean {
 	private Jogo jogo = new Jogo();
 	private List<Campeonato> campeonatos;
 	private List<Jogo> jogos;
+	private String filtroTime;
+	private List<Jogo> jogosFiltrados;
 
 	public List<Campeonato> getCampeonatos(){
 		if(campeonatos == null) {
@@ -62,7 +64,7 @@ public class JogoBean {
 	    jogo = new Jogo();
 
 	    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Jogo cadastrado com sucesso!"));
-	    return "listar_jogos?faces-redirect=true";
+	    return "listagem,0?faces-redirect=true";
 	}
 
 	private boolean isTimeValido(String time) {
@@ -198,7 +200,7 @@ public class JogoBean {
             resumo.setEmpates(resumo.getEmpates() + 1);
             resumo.setPontos(resumo.getPontos() + 1);
         } else {
-            resumo.setDerrotas(resumo.getDerrotas() + 0);
+            resumo.setDerrotas(resumo.getDerrotas() + 1);
         }
 
         resumoMap.put(time, resumo);
@@ -206,5 +208,23 @@ public class JogoBean {
 
     public List<Resumo> getResumoTimes() {
         return resumoTimes;
+    }
+    
+    
+    
+    public void filtrarPorTime() {
+    	jogosFiltrados = JogoDAO.buscarPorTime(filtroTime);
+    }
+
+    public String getFiltroTime() {
+        return filtroTime;
+    }
+
+    public void setFiltroTime(String filtroTime) {
+        this.filtroTime = filtroTime;
+    }
+
+    public List<Jogo> getJogosFiltrados() {
+        return jogosFiltrados;
     }
 }
